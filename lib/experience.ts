@@ -3,7 +3,7 @@ export interface Experience {
   role: string;
   period: string;
   location: string;
-  type: "Full-time" | "Contract" | "Freelance";
+  type: "Full-time" | "Contract" | "Freelance" | "Remote";
   highlights: string[];
 }
 
