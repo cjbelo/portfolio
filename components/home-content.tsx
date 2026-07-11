@@ -173,8 +173,7 @@ export function HomeContent() {
       </SectionWrapper>
 
       {/* Featured Projects Section */}
-      {/*
-      <SectionWrapper className="py-24" id="projects">
+      {/* <SectionWrapper className="py-24" id="projects">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -191,13 +190,6 @@ export function HomeContent() {
                 Selected work showcasing engineering depth and product thinking.
               </p>
             </div>
-            {/* <Link
-              href="/projects"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background hover:bg-muted hover:text-foreground h-9 px-4 gap-1.5 font-medium text-sm transition-colors self-start sm:self-auto"
-            >
-              View All Projects
-              <ArrowRight className="h-4 w-4" />
-            </Link> */}
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,8 +198,7 @@ export function HomeContent() {
             ))}
           </div>
         </div>
-      </SectionWrapper>
-      */}
+      </SectionWrapper> */}
 
       {/* How I Think Section */}
       <SectionWrapper className="py-24 bg-card/50">
