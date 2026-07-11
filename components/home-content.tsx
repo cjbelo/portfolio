@@ -173,6 +173,7 @@ export function HomeContent() {
       </SectionWrapper>
 
       {/* Featured Projects Section */}
+      {/*
       <SectionWrapper className="py-24" id="projects">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -206,6 +207,7 @@ export function HomeContent() {
           </div>
         </div>
       </SectionWrapper>
+      */}
 
       {/* How I Think Section */}
       <SectionWrapper className="py-24 bg-card/50">
