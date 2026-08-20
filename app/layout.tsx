@@ -15,10 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://cjbelo.vercel.app";
+
 export const metadata: Metadata = {
-  title: "CJ Belo - Senior Full Stack Engineer",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "CJ Belo - Senior Full Stack Engineer",
+    template: "%s - CJ Belo",
+  },
   description:
-    "Senior Full Stack Software Engineer with 16+ years of experience building scalable applications, AI-powered solutions, and intuitive user experiences.",
+    "Senior Full Stack Software Engineer with 16+ years of experience building scalable applications, SaaS platforms, and intuitive user experiences.",
   keywords: [
     "Full Stack Engineer",
     "React Developer",
@@ -30,18 +36,31 @@ export const metadata: Metadata = {
     "CJ Belo",
   ],
   authors: [{ name: "CJ Belo" }],
+  creator: "CJ Belo",
   openGraph: {
     title: "CJ Belo - Senior Full Stack Engineer",
     description:
-      "Building modern web experiences that solve real-world problems.",
+      "Senior Full Stack Software Engineer with 16+ years of experience building scalable web applications, SaaS platforms, and cloud-based systems.",
     type: "website",
     locale: "en_US",
+    siteName: "CJ Belo",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CJ Belo - Senior Full Stack Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "CJ Belo - Senior Full Stack Engineer",
     description:
-      "Building modern web experiences that solve real-world problems.",
+      "Senior Full Stack Software Engineer with 16+ years of experience building scalable web applications, SaaS platforms, and cloud-based systems.",
+    creator: "@cjbelo",
+    images: ["/og-image.png"],
   },
 };
 
