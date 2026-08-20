@@ -23,9 +23,9 @@ export default function ResumePage() {
     <div className="pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
-        <div className="flex items-start justify-between mb-12 gap-4">
+        <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between mb-12 gap-4">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2">
               Christopher Jhun S. Belo
             </h1>
             <p className="text-xl text-primary font-medium">
@@ -87,7 +87,7 @@ export default function ResumePage() {
             href="/cj-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 h-9 px-4 gap-2 font-medium text-sm transition-colors shrink-0"
+            className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 h-9 px-4 gap-2 font-medium text-sm transition-colors shrink-0 w-full sm:w-auto"
           >
             <Download className="h-4 w-4" />
             Download PDF
@@ -107,8 +107,8 @@ export default function ResumePage() {
             experience owning products end-to-end from architecture and database
             design through development, deployment, and production support.
             Experienced in building multi-tenant applications, PWAs, REST APIs,
-            and cloud infrastructure, while collaborating with distributed
-            teams and mentoring developers.
+            and cloud infrastructure, while collaborating with distributed teams
+            and mentoring developers.
           </p>
         </section>
 
@@ -233,12 +233,12 @@ export default function ResumePage() {
           <div className="mt-4 space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
               <div>
-                <h3 className="font-medium">AWS Certified Cloud Practitioner</h3>
+                <h3 className="font-medium">
+                  AWS Certified Cloud Practitioner
+                </h3>
                 <p className="text-sm text-primary">Amazon Web Services</p>
               </div>
-              <div className="text-sm text-muted-foreground">
-                August 2025
-              </div>
+              <div className="text-sm text-muted-foreground">August 2025</div>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
               <div>
@@ -247,9 +247,7 @@ export default function ResumePage() {
                 </h3>
                 <p className="text-sm text-primary">Amazon Web Services</p>
               </div>
-              <div className="text-sm text-muted-foreground">
-                November 2024
-              </div>
+              <div className="text-sm text-muted-foreground">November 2024</div>
             </div>
           </div>
         </section>
