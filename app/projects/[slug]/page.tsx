@@ -10,6 +10,7 @@ import {
 import { GitHubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ThemeImage } from "@/components/theme-image";
 import { projects, getProjectBySlug } from "@/lib/projects";
 
 interface PageProps {
@@ -90,14 +91,31 @@ export default async function ProjectPage({ params }: PageProps) {
           <p className="text-xl text-muted-foreground">{project.role}</p>
         </div>
 
-        {/* Project Image Placeholder */}
-        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-primary/10 to-cyan-500/10 mb-12 overflow-hidden">
-          <div className="absolute inset-0 bg-dot-grid bg-[size:20px_20px]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-8xl font-bold text-primary/10">
-              {project.title.charAt(0)}
-            </span>
-          </div>
+        {/* Project Image / Cover */}
+        <div className="relative h-80 rounded-2xl mb-12 overflow-hidden border border-border">
+          {project.image ? (
+            <ThemeImage
+              src={typeof project.image === "string" ? project.image : undefined}
+              srcByTheme={
+                typeof project.image === "string" ? undefined : project.image
+              }
+              alt={`${project.title} screenshot`}
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              priority
+              className="object-cover"
+            />
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-cyan-500/10" />
+              <div className="absolute inset-0 bg-dot-grid bg-[size:20px_20px]" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-8xl font-bold text-primary/10">
+                  {project.title.charAt(0)}
+                </span>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Overview */}
@@ -120,6 +138,30 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+
+        {/* Gallery */}
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-2xl font-semibold mb-6">Screenshots</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.gallery.map((entry, i) => (
+                <div
+                  key={typeof entry === "string" ? entry : `${entry.light}-${i}`}
+                  className="relative aspect-video rounded-xl overflow-hidden border border-border bg-muted"
+                >
+                  <ThemeImage
+                    src={typeof entry === "string" ? entry : undefined}
+                    srcByTheme={typeof entry === "string" ? undefined : entry}
+                    alt={`${project.title} screenshot`}
+                    fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Links */}
         {(project.links.github || project.links.live) && (

@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, ArrowLeft, ExternalLink } from "lucide-react";
+import { Download, ArrowLeft, ExternalLink, Mail, Phone } from "lucide-react";
 import { GitHubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import { experiences } from "@/lib/experience";
-import { skillCategories } from "@/lib/skills";
+import {
+  getProfessionalExperience,
+  getEarlierExperience,
+} from "@/lib/experience";
+import { resumeSkillCategories } from "@/lib/resume-skills";
 
 export const metadata: Metadata = {
   title: "Resume - CJ Belo",
   description:
-    "Senior Full Stack Software Engineer with 16+ years of experience. Download my resume or view it online.",
+    "Senior Full-Stack Software Engineer with 16+ years of experience designing and building scalable web applications, SaaS platforms, and cloud-based systems. Download my resume or view it online.",
 };
 
 export default function ResumePage() {
+  const professional = getProfessionalExperience();
+  const earlier = getEarlierExperience();
+
   return (
     <div className="pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
-        <div className="flex items-start justify-between mb-12">
+        <div className="flex items-start justify-between mb-12 gap-4">
           <div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-2">
               Christopher Jhun S. Belo
@@ -26,13 +32,61 @@ export default function ResumePage() {
               Senior Full-Stack Software Engineer
             </p>
             <p className="text-muted-foreground mt-2">
-              Vinzons, Camarines Norte, Philippines (GMT+8) • Open to remote
-              opportunities
+              Vinzons, Camarines Norte, Philippines ·{" "}
+              <Link
+                href="mailto:belo.cj@gmail.com"
+                className="hover:text-primary transition-colors"
+              >
+                belo.cj@gmail.com
+              </Link>{" "}
+              ·{" "}
+              <Link
+                href="tel:+639567316972"
+                className="hover:text-primary transition-colors"
+              >
+                +63 956 731 6972
+              </Link>
             </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
+              <span>
+                LinkedIn:{" "}
+                <Link
+                  href="https://linkedin.com/in/cjbelo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  cjbelo
+                </Link>
+              </span>
+              <span>
+                GitHub:{" "}
+                <Link
+                  href="https://github.com/cjbelo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  cjbelo
+                </Link>
+              </span>
+              <span>
+                Portfolio:{" "}
+                <Link
+                  href="https://cjbelo.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  cjbelo.vercel.app
+                </Link>
+              </span>
+            </div>
           </div>
           <Link
-            href="/cv.pdf"
+            href="/cj-resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 h-9 px-4 gap-2 font-medium text-sm transition-colors shrink-0"
           >
             <Download className="h-4 w-4" />
@@ -43,33 +97,54 @@ export default function ResumePage() {
         {/* Summary */}
         <section className="mb-10">
           <h2 className="text-lg font-semibold mb-3 border-b border-border pb-2">
-            Summary
+            Professional Summary
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Senior Full-Stack Software Engineer with 16+ years of professional
-            experience designing, building, and maintaining scalable web
-            applications. Experienced across the entire software development
-            lifecycle - from architecture and frontend engineering to backend
-            APIs, cloud infrastructure, deployment pipelines, and production
-            support. Strong expertise in React, TypeScript, Node.js, AWS
-            Serverless, and modern frontend architecture. Passionate about writing
-            clean, maintainable code, improving developer experience, mentoring
-            engineers, and building products that solve real-world problems.
+            Senior Full-Stack Software Engineer with 16+ years of experience
+            designing and building scalable web applications, SaaS platforms,
+            and cloud-based systems. Strong expertise in React, TypeScript,
+            Node.js, Python, PostgreSQL, AWS, and serverless architectures, with
+            experience owning products end-to-end from architecture and database
+            design through development, deployment, and production support.
+            Experienced in building multi-tenant applications, PWAs, REST APIs,
+            and cloud infrastructure, while collaborating with distributed
+            teams and mentoring developers.
           </p>
         </section>
 
-        {/* Experience */}
+        {/* Skills */}
         <section className="mb-10">
           <h2 className="text-lg font-semibold mb-3 border-b border-border pb-2">
-            Experience
+            Technical Skills
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            {resumeSkillCategories.map((category) => (
+              <div key={category.name}>
+                <h3 className="text-sm font-medium mb-1">{category.name}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {category.skills.join(", ")}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Professional Experience */}
+        <section className="mb-10">
+          <h2 className="text-lg font-semibold mb-3 border-b border-border pb-2">
+            Professional Experience
           </h2>
           <div className="space-y-6 mt-4">
-            {experiences.map((exp, index) => (
-              <div key={index}>
+            {professional.map((exp, index) => (
+              <div key={`${exp.company}-${exp.period}`}>
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                   <div>
-                    <h3 className="font-medium">{exp.role}</h3>
-                    <p className="text-primary text-sm">{exp.company}</p>
+                    <h3 className="font-medium">
+                      {exp.role} - {exp.company}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {exp.type} · {exp.location}
+                    </p>
                   </div>
                   <div className="text-sm text-muted-foreground">
                     {exp.period}
@@ -86,7 +161,13 @@ export default function ResumePage() {
                     </li>
                   ))}
                 </ul>
-                {index < experiences.length - 1 && (
+                {exp.tech && exp.tech.length > 0 && (
+                  <p className="text-xs text-muted-foreground mt-2">
+                    <span className="font-medium text-foreground">Tech:</span>{" "}
+                    {exp.tech.join(", ")}
+                  </p>
+                )}
+                {index < professional.length - 1 && (
                   <div className="border-b border-border/50 my-6" />
                 )}
               </div>
@@ -94,17 +175,24 @@ export default function ResumePage() {
           </div>
         </section>
 
-        {/* Skills */}
+        {/* Earlier Experience (condensed) */}
         <section className="mb-10">
           <h2 className="text-lg font-semibold mb-3 border-b border-border pb-2">
-            Skills
+            Earlier Experience
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            {skillCategories.map((category) => (
-              <div key={category.name}>
-                <h3 className="text-sm font-medium mb-1">{category.name}</h3>
+          <div className="space-y-4 mt-4">
+            {earlier.map((exp) => (
+              <div key={`${exp.company}-${exp.period}`}>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                  <h3 className="font-medium">
+                    {exp.role} - {exp.company}
+                  </h3>
+                  <div className="text-sm text-muted-foreground">
+                    {exp.period}
+                  </div>
+                </div>
                 <p className="text-sm text-muted-foreground">
-                  {category.skills.join(", ")}
+                  {exp.highlights.join(" ")}
                 </p>
               </div>
             ))}
@@ -117,9 +205,11 @@ export default function ResumePage() {
             Education
           </h2>
           <div className="mt-4">
-            <h3 className="font-medium">AMA Computer College</h3>
+            <h3 className="font-medium">
+              AMA Computer College - Daet, Camarines Norte
+            </h3>
             <p className="text-sm text-muted-foreground">
-              Computer System Design & Programming - 2004
+              Computer System Design & Programming · 2004
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               <Badge variant="outline" className="text-xs">
@@ -131,6 +221,35 @@ export default function ResumePage() {
               <Badge variant="outline" className="text-xs">
                 Regional IT Competition Winner
               </Badge>
+            </div>
+          </div>
+        </section>
+
+        {/* Certifications */}
+        <section className="mb-10">
+          <h2 className="text-lg font-semibold mb-3 border-b border-border pb-2">
+            Certifications
+          </h2>
+          <div className="mt-4 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 className="font-medium">AWS Certified Cloud Practitioner</h3>
+                <p className="text-sm text-primary">Amazon Web Services</p>
+              </div>
+              <div className="text-sm text-muted-foreground">
+                August 2025
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+              <div>
+                <h3 className="font-medium">
+                  AWS Certified Developer – Associate
+                </h3>
+                <p className="text-sm text-primary">Amazon Web Services</p>
+              </div>
+              <div className="text-sm text-muted-foreground">
+                November 2024
+              </div>
             </div>
           </div>
         </section>
@@ -158,6 +277,29 @@ export default function ResumePage() {
             >
               <ExternalLink className="h-4 w-4" />
               linkedin.com/in/cjbelo
+            </Link>
+            <Link
+              href="https://cjbelo.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
+            >
+              <ExternalLink className="h-4 w-4" />
+              cjbelo.vercel.app
+            </Link>
+            <Link
+              href="mailto:belo.cj@gmail.com"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
+            >
+              <Mail className="h-4 w-4" />
+              belo.cj@gmail.com
+            </Link>
+            <Link
+              href="tel:+639567316972"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
+            >
+              <Phone className="h-4 w-4" />
+              +63 956 731 6972
             </Link>
           </div>
         </section>

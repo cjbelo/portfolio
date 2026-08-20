@@ -5,7 +5,7 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 const footerLinks = {
   pages: [
     { href: "/about", label: "About" },
-    // { href: "/projects", label: "Projects" },
+    { href: "/projects", label: "Projects" },
     { href: "/experience", label: "Experience" },
     { href: "/skills", label: "Skills" },
     { href: "/contact", label: "Contact" },

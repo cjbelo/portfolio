@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { getFeaturedProjects } from "@/lib/projects";
 import { Hero } from "@/components/hero";
 import { GitHubIcon } from "@/components/icons";
+import { ThemeImage } from "@/components/theme-image";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -58,12 +59,27 @@ function ProjectCard({
       transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
     >
       <Card className="group h-full overflow-hidden border-border/50 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
-        {/* Placeholder Image Area */}
-        <div className="relative h-48 bg-gradient-to-br from-primary/10 to-cyan-500/10 flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-dot-grid bg-[size:16px_16px]" />
-          <div className="text-4xl font-bold text-primary/20">
-            {project.title.charAt(0)}
-          </div>
+        {/* Cover Image / Placeholder */}
+        <div className="relative h-48 overflow-hidden">
+          {project.image ? (
+            <ThemeImage
+              src={typeof project.image === "string" ? project.image : undefined}
+              srcByTheme={
+                typeof project.image === "string" ? undefined : project.image
+              }
+              alt={`${project.title} screenshot`}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="relative h-full bg-gradient-to-br from-primary/10 to-cyan-500/10 flex items-center justify-center">
+              <div className="absolute inset-0 bg-dot-grid bg-[size:16px_16px]" />
+              <div className="text-4xl font-bold text-primary/20">
+                {project.title.charAt(0)}
+              </div>
+            </div>
+          )}
           <Badge
             className="absolute top-3 right-3"
             variant={
@@ -173,7 +189,7 @@ export function HomeContent() {
       </SectionWrapper>
 
       {/* Featured Projects Section */}
-      {/* <SectionWrapper className="py-24" id="projects">
+      <SectionWrapper className="py-24" id="projects">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -190,6 +206,13 @@ export function HomeContent() {
                 Selected work showcasing engineering depth and product thinking.
               </p>
             </div>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+            >
+              View all projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -198,7 +221,7 @@ export function HomeContent() {
             ))}
           </div>
         </div>
-      </SectionWrapper> */}
+      </SectionWrapper>
 
       {/* How I Think Section */}
       <SectionWrapper className="py-24 bg-card/50">

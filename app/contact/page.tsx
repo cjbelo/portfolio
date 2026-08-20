@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, MapPin, Calendar } from "lucide-react";
+import { Mail, MapPin, Calendar, Phone } from "lucide-react";
 import { LinkedInIcon, GitHubIcon } from "@/components/icons";
 import { Card, CardContent } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
@@ -52,6 +52,15 @@ export default function ContactPage() {
                       <Mail className="h-4 w-4 text-primary" />
                     </div>
                     <span>belo.cj@gmail.com</span>
+                  </Link>
+                  <Link
+                    href="tel:+639567316972"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Phone className="h-4 w-4 text-primary" />
+                    </div>
+                    <span>+63 956 731 6972</span>
                   </Link>
                   <Link
                     href="https://linkedin.com/in/cjbelo"

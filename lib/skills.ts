@@ -9,6 +9,7 @@ export const skillCategories: SkillCategory[] = [
     name: "Frontend",
     icon: "layout",
     skills: [
+      "JavaScript",
       "React",
       "Next.js",
       "TypeScript",
@@ -26,9 +27,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "Node.js",
       "Express",
+      "Express.js",
       "Python",
       "Flask",
       "PHP",
+      "LAMP",
       "GraphQL",
       "REST APIs",
     ],
@@ -62,7 +65,7 @@ export const skillCategories: SkillCategory[] = [
     name: "AI & Machine Learning",
     icon: "brain",
     skills: [
-      "OpenAI API",
+      "OpenAI APIs",
       "Claude Code",
       "Prompt Engineering",
     ],
