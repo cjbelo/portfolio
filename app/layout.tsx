@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { PageMountTransition } from "@/components/page-mount-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,7 +82,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <PageMountTransition>{children}</PageMountTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
