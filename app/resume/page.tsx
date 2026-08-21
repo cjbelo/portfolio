@@ -73,12 +73,12 @@ export default function ResumePage() {
               <span>
                 Portfolio:{" "}
                 <Link
-                  href="https://cjbelo.vercel.app"
+                  href="https://cjbelo.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
-                  cjbelo.vercel.app
+                  cjbelo.dev
                 </Link>
               </span>
             </div>
@@ -277,13 +277,13 @@ export default function ResumePage() {
               linkedin.com/in/cjbelo
             </Link>
             <Link
-              href="https://cjbelo.vercel.app"
+              href="https://cjbelo.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
             >
               <ExternalLink className="h-4 w-4" />
-              cjbelo.vercel.app
+              cjbelo.dev
             </Link>
             <Link
               href="mailto:belo.cj@gmail.com"

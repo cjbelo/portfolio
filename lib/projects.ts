@@ -70,7 +70,7 @@ export const projects: Project[] = [
       "Server-rendered pages with focused client islands (the filter, the contact form, the theme toggle) give the best of both worlds: fast static content, interactive only where it matters",
     ],
     links: {
-      live: "https://cjbelo.vercel.app",
+      live: "https://cjbelo.dev",
       github: "",
     },
     featuredOrder: 1,
@@ -219,7 +219,7 @@ export const projects: Project[] = [
       "/project-images/timeko/time-log.jpg",
     ],
   },
-  ];
+];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

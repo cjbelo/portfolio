@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://cjbelo.vercel.app";
+const SITE_URL = "https://cjbelo.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
