@@ -32,7 +32,7 @@ export default function ResumePage() {
               Senior Full-Stack Software Engineer
             </p>
             <p className="text-muted-foreground mt-2">
-              Vinzons, Camarines Norte, Philippines ·{" "}
+              Mandaluyong City, Manila, Philippines ·{" "}
               <Link
                 href="mailto:belo.cj@gmail.com"
                 className="hover:text-primary transition-colors"
