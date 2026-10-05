@@ -32,6 +32,16 @@ export const resumeSkillCategories: ResumeSkillCategory[] = [
     skills: ["PostgreSQL", "MySQL", "DynamoDB", "Redis"],
   },
   {
+    name: "Testing & Quality",
+    skills: [
+      "Test-Driven Development (TDD)",
+      "Unit Testing",
+      "Automated Testing",
+      "Testable Code",
+      "Refactoring",
+    ],
+  },
+  {
     name: "Cloud & Infrastructure",
     skills: ["AWS Services", "Docker"],
   },

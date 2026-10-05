@@ -32,7 +32,8 @@ export const experiences: Experience[] = [
       "Developed the application as a Progressive Web App (PWA) for web-based workforce operations across desktop and mobile devices.",
       "Implemented Web Push notifications for real-time employee and system notifications on supported devices.",
       "Designed tenant-aware data structures and access controls to support multiple companies, stores, employees, and operational workflows.",
-      "Owned the complete product lifecycle including architecture, database design, frontend/backend development, authentication, deployment, testing, and production troubleshooting.",
+      "Owned the complete product lifecycle including architecture, database design, frontend/backend development, authentication, automated testing, deployment, and production troubleshooting.",
+      "Followed testing-focused development practices by designing modular, testable components and validating application behavior across frontend and backend functionality.",
     ],
     tech: [
       "React",
@@ -112,7 +113,8 @@ export const experiences: Experience[] = [
     highlights: [
       "Developed interactive web applications using React, Node.js, and AWS Serverless.",
       "Collaborated with cross-functional teams following Agile/SCRUM practices.",
-      "Established CI/CD workflows using GitHub and automated unit-testing pipelines.",
+      "Established CI/CD workflows with automated unit-testing pipelines, integrating testing into the development and deployment lifecycle.",
+      "Applied clean-code and maintainability practices to improve reliability and support continuous delivery.",
     ],
   },
   {

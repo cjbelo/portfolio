@@ -105,10 +105,11 @@ export default function ResumePage() {
             and cloud-based systems. Strong expertise in React, TypeScript,
             Node.js, Python, PostgreSQL, AWS, and serverless architectures, with
             experience owning products end-to-end from architecture and database
-            design through development, deployment, and production support.
-            Experienced in building multi-tenant applications, PWAs, REST APIs,
-            and cloud infrastructure, while collaborating with distributed teams
-            and mentoring developers.
+            design through development, testing, deployment, and production
+            support. Experienced in automated testing, unit testing, CI/CD,
+            clean-code practices, and iterative development in building
+            multi-tenant applications, PWAs, and REST APIs, with a strong focus
+            on maintainable, testable, and reliable software.
           </p>
         </section>
 
